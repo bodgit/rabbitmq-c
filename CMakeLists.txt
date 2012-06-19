@@ -99,6 +99,7 @@ if (BUILD_API_DOCS)
 
   add_custom_target(docs
     COMMAND ${DOXYGEN_EXECUTABLE}
+    VERBATIM
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/docs
     DEPENDS rabbitmq
     COMMENT "Generating API documentation"

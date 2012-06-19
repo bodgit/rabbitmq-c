@@ -120,26 +120,41 @@
 
 AMQP_BEGIN_DECLS
 
+/**
+ * Boolean type
+ */
 typedef int amqp_boolean_t;
 typedef uint32_t amqp_method_number_t;
 typedef uint32_t amqp_flags_t;
 typedef uint16_t amqp_channel_t;
 
+/**
+ * amqp_bytes_t
+ */
 typedef struct amqp_bytes_t_ {
   size_t len;
   void *bytes;
 } amqp_bytes_t;
 
+/**
+ * amqp_decimal_t
+ */
 typedef struct amqp_decimal_t_ {
   uint8_t decimals;
   uint32_t value;
 } amqp_decimal_t;
 
+/**
+ * amqp_table_t
+ */
 typedef struct amqp_table_t_ {
   int num_entries;
   struct amqp_table_entry_t_ *entries;
 } amqp_table_t;
 
+/**
+ * amqp_array_t
+ */
 typedef struct amqp_array_t_ {
   int num_entries;
   struct amqp_field_value_t_ *entries;
@@ -308,6 +323,12 @@ AMQP_PUBLIC_VARIABLE const amqp_array_t amqp_empty_array;
 #define AMQP_EMPTY_TABLE amqp_empty_table
 #define AMQP_EMPTY_ARRAY amqp_empty_array
 
+/**
+ * Initializes amqp_pool_t memory pool
+ * 
+ * \param [in/out] pool
+ * \param [in] pagesize
+ */
 AMQP_PUBLIC_FUNCTION
 void
 AMQP_CALL init_amqp_pool(amqp_pool_t *pool, size_t pagesize);
